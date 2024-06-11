@@ -18,10 +18,10 @@ export default function Progress() {
         maximumValue={duration}
         thumbTintColor="white"
         minimumTrackTintColor="lightblue"
-        maximumTrackTintColor="orange"
+        maximumTrackTintColor="black"
         onSlidingComplete={TrackPlayer.seekTo}
       />
-      <View style={{flex:1, flexDirection: "row", gap:606, justifyContent:"space-between"}}>
+      <View style={{flex:1, flexDirection: "row", gap:600, justifyContent:"space-between"}}>
       <ThemedText>00:00</ThemedText>
         <ThemedText>{formatSeconds(position)}</ThemedText>
  

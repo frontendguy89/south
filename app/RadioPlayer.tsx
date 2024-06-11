@@ -11,22 +11,18 @@ import { ThemedText } from "@/components/ThemedText";
 import { TrackInfo } from "@/components/AudioPlayer/TrackInfo";
 import Progress from "@/components/AudioPlayer/Progress";
 
-export default function Index() {
+export default function RadioPlayer() {
   const track = useActiveTrack();
   const isPlayerReady = useSetupPlayer();
 
   return (
     <ThemedView
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 32,
-      }}
+    style={{flex:1, alignItems:"center", justifyContent:"center"}}
     >
-      <Logo />
-      <ThemedText type="title">Welcome to South Coast Radio</ThemedText>
-      <View>
+      <Logo style={{flex:1, alignItems: "center", justifyContent:"center", alignSelf:"center"}} />
+      <View style={{flex:1, gap:8, backgroundColor:"orange", padding:16, borderRadius:16
+      }}>
+        <ThemedText type="subtitle" style={{textAlign: "center"}}>Now Playing:</ThemedText>
         <TrackInfo track={track} />
         <Progress />
         <PlayerControls />

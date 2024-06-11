@@ -1,26 +1,15 @@
-import { Pressable, View } from "react-native";
-import TimerButton from "./TimerButton";
+import { View } from "react-native";
 import PlayPauseButton from "./PlayPauseButton";
 import VolumeButton from "./VolumeButton";
-import Progress from "./Progress";
 import { TrackInfo } from "./TrackInfo";
+import RatingButton from "./RatingButton";
 
 export default function PlayerControls() {
   return (
-    <View>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 32,
-        }}
-      >
-        <TimerButton />
-        <PlayPauseButton />
-        <VolumeButton />
-      </View>
+    <View style={{flex:1, flexDirection: "row", alignItems:"center", justifyContent:"center", alignSelf:"center", gap:64}}>
+      <RatingButton />
+      <PlayPauseButton />
+      <VolumeButton />
     </View>
   );
 }

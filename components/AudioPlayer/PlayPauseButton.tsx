@@ -19,7 +19,7 @@ export default function PlayPauseButton({
   const { playing, bufferingDuringPlay } = useIsPlaying();
   
   return (
-    <View>
+    <View style={{paddingVertical:16, borderRadius:8, flex:1}}>
       {bufferingDuringPlay ? (
         <ActivityIndicator />
       ) : (
@@ -27,7 +27,7 @@ export default function PlayPauseButton({
         <MaterialIcons
           name={playing ? "pause-circle" : "play-circle"}
           size={64}
-          color="orange"
+          color="black"
           raised
         />
       </Pressable>

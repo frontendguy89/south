@@ -10,7 +10,7 @@ export default function LoginRegister() {
       style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
     >
       <Logo />
-      <LoginForm />)
+      <LoginForm />
     </ThemedView>
   );
 }

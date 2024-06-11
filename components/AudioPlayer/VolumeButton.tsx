@@ -1,11 +1,11 @@
 import { Pressable, View } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons} from "@expo/vector-icons";
 
 export default function VolumeButton() {
   return (
     <View>
       <Pressable>
-        <MaterialIcons name="volume-up" size={32} color="lightblue" />
+        <Ionicons name="share-social" size={32} color="white" />
       </Pressable>
     </View>
   );
