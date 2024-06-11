@@ -42,7 +42,6 @@ export default function RootLayout() {
         <PaperProvider>
           <Drawer>
             <Drawer.Screen name="index" />
-            <Drawer.Screen name="/login" />
           </Drawer>
         </PaperProvider>
       </ThemeProvider>

@@ -4,7 +4,7 @@ import Logo from "@/components/Logo/Logo";
 import { QueueInitialTracksService } from "@/services/QueueInitialTracksService";
 import { SetupService } from "@/services/SetupService";
 import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
+import { ImageBackground, Text, View } from "react-native";
 import TrackPlayer, { useActiveTrack } from "react-native-track-player";
 import { ThemedView } from "@/components/ThemedView";
 import { ThemedText } from "@/components/ThemedText";
@@ -19,6 +19,11 @@ export default function RadioPlayer() {
     <ThemedView
     style={{flex:1, alignItems:"center", justifyContent:"center"}}
     >
+        <ImageBackground
+        source={require("../assets/images/microphone2.jpg")}
+        resizeMode="cover"
+        style={{ flex: 1, justifyContent: "center", alignItems: "center", width: "100%", opacity:0.8 }}
+      >
       <Logo style={{flex:1, alignItems: "center", justifyContent:"center", alignSelf:"center"}} />
       <View style={{flex:1, gap:8, backgroundColor:"orange", padding:16, borderRadius:16
       }}>
@@ -27,6 +32,7 @@ export default function RadioPlayer() {
         <Progress />
         <PlayerControls />
       </View>
+      </ImageBackground>
     </ThemedView>
   );
 }
