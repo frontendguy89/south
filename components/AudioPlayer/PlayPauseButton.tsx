@@ -1,37 +1,45 @@
-import TrackPlayer, { useIsPlaying } from 'react-native-track-player';
 import { MaterialIcons } from "@expo/vector-icons";
 import { ActivityIndicator, Text, View, type TextProps } from "react-native";
 import { Pressable } from "react-native";
-
+import { Audio } from 'expo-av';
 import { useThemeColor } from '@/hooks/useThemeColor';
+import { useEffect, useRef, useState } from "react";
 
-export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
-};
+const audioSource = require('../../assets/resources/pure.m4a');
 
-export default function PlayPauseButton({
-  style, lightColor, darkColor, type = 'default', ...rest
-}: ThemedTextProps) {
+export default function PlayPauseButton() {
+  const [sound, setSound] = useState();
 
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const { playing, bufferingDuringPlay } = useIsPlaying();
+  async function playSound() {
+    console.log('Loading Sound');
+    const { sound } = await Audio.Sound.createAsync(
+      require('../../assets/resources/pure.m4a'));
+    setSound(sound);
+
+    console.log('Playing Sound');
+    await sound.playAsync();
+  }
+
+  useEffect(() => {
+    return sound
+      ? () => {
+          console.log('Unloading Sound');
+          sound.unloadAsync();
+        }
+      : undefined;
+  }, [sound]);
   
   return (
-    <View style={{paddingVertical:16, borderRadius:8, flex:1}}>
-      {bufferingDuringPlay ? (
-        <ActivityIndicator />
-      ) : (
-      <Pressable onPress={playing ? TrackPlayer.pause : TrackPlayer.play}>
+    <View>
+      <Pressable>
         <MaterialIcons
-          name={playing ? "pause-circle" : "play-circle"}
+          name="play-circle"
           size={64}
           color="black"
           raised
+          onPress={playSound}
         />
       </Pressable>
-      )}
     </View>
   );
 }

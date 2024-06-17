@@ -81,7 +81,7 @@ export async function PlaybackService() {
   });
 
   TrackPlayer.addEventListener(
-    Event.PlaybackMetadataReceived,
+    Event.AudioChapterMetadataReceived,
     async ({ title, artist }) => {
       const activeTrack = await TrackPlayer.getActiveTrack();
       TrackPlayer.updateNowPlayingMetadata({

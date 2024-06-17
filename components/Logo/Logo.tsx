@@ -4,10 +4,10 @@ import Svg, { SvgProps, Defs, ClipPath, Path, Mask, G } from "react-native-svg"
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
 import { memo } from "react";
 const Logo = (props: SvgProps) => (
-  <View style={{flex: 1, padding: 16, margin: 16}}>
+  <View>
     <Svg
-      width={256}
-      height={256}
+      width={150}
+      height={150}
       viewBox="0 0 375 375"
       {...props}
     >
